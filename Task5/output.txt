@@ -1,0 +1,24 @@
+Test 1: Original branch order
+Scores: [3, 5, 2, 9, 3, 5, 2, 9]
+Minimax value: 5
+Minimax leaves evaluated: 8
+Alpha-Beta value: 5
+Alpha-Beta leaves evaluated: 6
+Values match: True
+
+Test 2: Reordered branches
+Scores: [9, 2, 5, 3, 9, 2, 5, 3]
+Minimax value: 5
+Minimax leaves evaluated: 8
+Alpha-Beta value: 5
+Alpha-Beta leaves evaluated: 8
+Values match: True
+
+Test 3: Edge case with equal leaf values
+Scores: [4, 4, 4, 4, 4, 4, 4, 4]
+Minimax value: 4
+Minimax leaves evaluated: 8
+Alpha-Beta value: 4
+Alpha-Beta leaves evaluated: 5
+Values match: True
+
