@@ -1,0 +1,14 @@
+Stateful agent: complete mode-transition trace
+step prev mode  percept         target  outcome
+--------------------------------------------------------
+1    None       (29, True)      COOL    SEND
+2    COOL       (29, True)      COOL    NO-SEND
+3    COOL       (20, True)      IDLE    SEND
+4    IDLE       (26, True)      IDLE    NO-SEND
+5    IDLE       (19, True)      WARM    SEND
+6    WARM       (29, True)      COOL    SEND
+7    COOL       (29, False)     ECO     SEND
+8    ECO        (19, False)     ECO     NO-SEND
+
+Reflex agent commands sent : 8 of 8
+Stateful agent commands sent: 5 of 8
