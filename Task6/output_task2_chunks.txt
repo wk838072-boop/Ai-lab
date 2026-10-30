@@ -1,0 +1,31 @@
+Invalid overlap raised ValueError
+95 word sentence split into 3 fallback windows
+late words: 183
+password words: 155
+contractor words: 157
+
+Strategy: 0
+Chunks: 13 | smallest: 23 | largest: 40 | average: 38.1
+Repeated words: 0
+late rule and exception in one chunk: False
+password rule and exception in one chunk: False
+contractor rule and exception in one chunk: False
+
+Strategy: 10
+Chunks: 16 | smallest: 33 | largest: 40 | average: 39.1
+Repeated words: 130
+late rule and exception in one chunk: False
+password rule and exception in one chunk: False
+contractor rule and exception in one chunk: False
+
+Strategy: sentence
+Chunks: 17 | smallest: 9 | largest: 40 | average: 29.1
+Repeated words: 0
+late rule and exception in one chunk: False
+password rule and exception in one chunk: False
+contractor rule and exception in one chunk: False
+
+Abbreviation test: 'Dr. '
+Abbreviation test: 'Khan approved the request. '
+Abbreviation test: 'The deadline is Friday.'
+The splitter cuts after Dr. because it treats the dot as a sentence end.

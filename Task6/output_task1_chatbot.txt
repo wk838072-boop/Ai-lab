@@ -1,0 +1,8 @@
+Exact answer: Use the recovery link on the login page. [source: it_help.txt]
+Suggestion: Possible matches; choose or rephrase your question:
+How do I reset my password? (similarity 0.448)
+Where do I submit my assignment? (similarity 0.000)
+Can illness justify a late submission? (similarity 0.000)
+Empty input: Please enter a question.
+Unsupported input: No matching FAQ. Please contact the help desk.
+FAQ behaviour checks passed

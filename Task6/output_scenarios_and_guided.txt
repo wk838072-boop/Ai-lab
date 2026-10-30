@@ -1,0 +1,37 @@
+=== scenario1_handbook.py
+assessment:late score=0.506
+Late submission is normally penalized. Students with illness may request an extension with medical evidence before the deadline.
+
+=== scenario2_support.py
+returns:damage score=0.373
+For a damaged parcel, contact support within 48 hours and attach photographs of the item and packaging.
+
+=== scenario3_docs.py
+auth:v2 score=0.431
+Renew an expired API token with POST /v2/token/refresh. Send the refresh_token field; never print its value in logs.
+
+=== scenario4_workplace.py
+remote:contractor score=0.435
+Contractors may work remotely only when the signed contract explicitly permits remote work.
+
+=== scenario5_equipment.py
+printer:blank score=0.278
+For blank printer pages: 1. Check ink level. 2. Run the printer cleaning utility. 3. Print a test page. Follow the device manual.
+
+=== guided_tokens.py
+Whitespace: ['I', "can't", 'submit', 'CS4944', 'late!'] 5
+Word-like: ['I', 'can', 't', 'submit', 'CS4944', 'late'] 6
+Original: I can't submit CS4944 late!
+
+=== guided_chunks.py
+word windows
+0 73 'Late work is penalized. Illness may qualify for an extension when medical'
+48 122 'an extension when medical evidence is provided. Ask the coordinator first.'
+sentence aware
+0 24 'Late work is penalized. '
+24 96 'Illness may qualify for an extension when medical evidence is provided. '
+96 122 'Ask the coordinator first.'
+
+=== guided_metrics.py
+Hit@3=0.667; MRR@3=0.500
+
