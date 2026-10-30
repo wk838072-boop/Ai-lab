@@ -1,0 +1,22 @@
+Start equals goal
+PASS BFS | got ['A'] | expected ['A']
+PASS DFS | got ['A'] | expected ['A']
+PASS DLS limit 0 | got ('FOUND', ['A']) | expected ('FOUND', ['A'])
+PASS IDDFS | got ('FOUND', ['A']) | expected ('FOUND', ['A'])
+PASS UCS | got (['A'], 0) | expected (['A'], 0)
+Unreachable goal H
+PASS BFS | got None | expected None
+PASS DFS | got None | expected None
+PASS DLS limit 2 is only CUTOFF | got ('CUTOFF', None) | expected ('CUTOFF', None)
+PASS DLS limit 4 is FAILURE | got ('FAILURE', None) | expected ('FAILURE', None)
+PASS IDDFS max depth 5 | got ('FAILURE', None) | expected ('FAILURE', None)
+PASS UCS | got (None, None) | expected (None, None)
+Graph with cycle A-B-C-A, goal D
+PASS BFS | got ['A', 'B', 'C', 'D'] | expected ['A', 'B', 'C', 'D']
+PASS DFS | got ['A', 'B', 'C', 'D'] | expected ['A', 'B', 'C', 'D']
+PASS DLS limit 3 | got ('FOUND', ['A', 'B', 'C', 'D']) | expected ('FOUND', ['A', 'B', 'C', 'D'])
+PASS DLS limit 2 | got ('CUTOFF', None) | expected ('CUTOFF', None)
+PASS IDDFS | got ('FOUND', ['A', 'B', 'C', 'D']) | expected ('FOUND', ['A', 'B', 'C', 'D'])
+PASS UCS | got (['A', 'B', 'C', 'D'], 3) | expected (['A', 'B', 'C', 'D'], 3)
+Negative edge cost is rejected by UCS
+PASS ValueError: negative edge cost

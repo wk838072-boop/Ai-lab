@@ -1,0 +1,23 @@
+Task 2: DLS on the original graph, start A, goal G, root depth 0
+DLS limit 1 | status CUTOFF | path None | nodes processed 3 ['A', 'B', 'C']
+DLS limit 2 | status CUTOFF | path None | nodes processed 6 ['A', 'B', 'D', 'E', 'C', 'F']
+DLS limit 3 | status FOUND | path ['A', 'B', 'E', 'G'] | nodes processed 5 ['A', 'B', 'D', 'E', 'G']
+DLS limit 4 | status FOUND | path ['A', 'B', 'E', 'G'] | nodes processed 5 ['A', 'B', 'D', 'E', 'G']
+Task 2: IDDFS on the original graph
+IDDFS max depth 1 | status CUTOFF | path None | limits attempted [0, 1] | total nodes processed 4
+   limit 0 CUTOFF nodes processed 1
+   limit 1 CUTOFF nodes processed 3
+IDDFS max depth 2 | status CUTOFF | path None | limits attempted [0, 1, 2] | total nodes processed 10
+   limit 0 CUTOFF nodes processed 1
+   limit 1 CUTOFF nodes processed 3
+   limit 2 CUTOFF nodes processed 6
+IDDFS max depth 3 | status FOUND | path ['A', 'B', 'E', 'G'] | limits attempted [0, 1, 2, 3] | total nodes processed 15
+   limit 0 CUTOFF nodes processed 1
+   limit 1 CUTOFF nodes processed 3
+   limit 2 CUTOFF nodes processed 6
+   limit 3 FOUND nodes processed 5
+IDDFS max depth 4 | status FOUND | path ['A', 'B', 'E', 'G'] | limits attempted [0, 1, 2, 3] | total nodes processed 15
+   limit 0 CUTOFF nodes processed 1
+   limit 1 CUTOFF nodes processed 3
+   limit 2 CUTOFF nodes processed 6
+   limit 3 FOUND nodes processed 5

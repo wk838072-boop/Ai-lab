@@ -1,0 +1,27 @@
+Task 3: weighted graph (C to G is the added corridor)
+   A -> B cost 1
+   A -> C cost 5
+   B -> D cost 4
+   B -> E cost 1
+   C -> F cost 2
+   C -> G cost 7
+   E -> G cost 1
+UCS step 1 | processed A | cost 0 | path ['A']
+   frontier after step [(1, 'B'), (5, 'C')]
+UCS step 2 | processed B | cost 1 | path ['A', 'B']
+   frontier after step [(2, 'E'), (5, 'C'), (5, 'D')]
+UCS step 3 | processed E | cost 2 | path ['A', 'B', 'E']
+   frontier after step [(3, 'G'), (5, 'C'), (5, 'D')]
+UCS step 4 | processed G | cost 3 | path ['A', 'B', 'E', 'G']
+   frontier after step [(5, 'C'), (5, 'D')]
+UCS path: ['A', 'B', 'E', 'G']
+UCS reported cost: 3
+UCS hops: 3
+UCS processing order: ['A', 'B', 'E', 'G']
+UCS independently summed cost: 3
+BFS path on same topology: ['A', 'C', 'G']
+BFS hops: 2
+BFS independently summed cost: 12
+BFS processing order: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+Fewest hops route is BFS: 2 hops, cost 12
+Cheapest route is UCS: 3 hops, cost 3
