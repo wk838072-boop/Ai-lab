@@ -1,0 +1,64 @@
+Task 2: A* with supplied h compared with UCS control (h = 0 for every node)
+Heuristic audit for supplied heuristic
+    S h = 5 true remaining = 6 admissible: True
+    A h = 4 true remaining = 5 admissible: True
+    B h = 4 true remaining = 5 admissible: True
+    C h = 2 true remaining = 3 admissible: True
+    G h = 0 true remaining = 0 admissible: True
+    edge S -> A | h(u) = 5 <= cost + h(v) = 1 + 4 = 5 : True
+    edge S -> B | h(u) = 5 <= cost + h(v) = 4 + 4 = 8 : True
+    edge A -> C | h(u) = 4 <= cost + h(v) = 2 + 2 = 4 : True
+    edge B -> G | h(u) = 4 <= cost + h(v) = 5 + 0 = 5 : True
+    edge C -> G | h(u) = 2 <= cost + h(v) = 3 + 0 = 3 : True
+    inconsistent edges: []
+start frontier [('S', 'g=0', 'h=5', 'f=5')]
+Processed S | g = 0 | h = 5 | f = g + h = 0 + 5 = 5 | path ['S']
+    S -> A | g = 0 + 1 = 1 | h = 4 | f = 1 + 4 = 5 | pushed
+    S -> B | g = 0 + 4 = 4 | h = 4 | f = 4 + 4 = 8 | pushed
+   frontier after expanding S [(5, 1, 'A'), (8, 4, 'B')] as (f, g, node)
+Processed A | g = 1 | h = 4 | f = g + h = 1 + 4 = 5 | path ['S', 'A']
+    A -> C | g = 1 + 2 = 3 | h = 2 | f = 3 + 2 = 5 | pushed
+   frontier after expanding A [(5, 3, 'C'), (8, 4, 'B')] as (f, g, node)
+Processed C | g = 3 | h = 2 | f = g + h = 3 + 2 = 5 | path ['S', 'A', 'C']
+    C -> G | g = 3 + 3 = 6 | h = 0 | f = 6 + 0 = 6 | pushed
+   frontier after expanding C [(6, 6, 'G'), (8, 4, 'B')] as (f, g, node)
+Processed G | g = 6 | h = 0 | f = g + h = 6 + 0 = 6 | path ['S', 'A', 'C', 'G']
+   goal processed, logged but not counted as expanded
+A* result
+   returned path: ['S', 'A', 'C', 'G']
+   returned cost: 6
+   independently summed cost: 6
+   processed order (goal included): ['S', 'A', 'C', 'G']
+   expanded nodes (goal excluded): ['S', 'A', 'C']
+   expansion count: 3
+   stale entries ignored: 0
+UCS control trace
+start frontier [('S', 'g=0', 'h=0', 'f=0')]
+Processed S | g = 0 | h = 0 | f = g + h = 0 + 0 = 0 | path ['S']
+    S -> A | g = 0 + 1 = 1 | h = 0 | f = 1 + 0 = 1 | pushed
+    S -> B | g = 0 + 4 = 4 | h = 0 | f = 4 + 0 = 4 | pushed
+   frontier after expanding S [(1, 1, 'A'), (4, 4, 'B')] as (f, g, node)
+Processed A | g = 1 | h = 0 | f = g + h = 1 + 0 = 1 | path ['S', 'A']
+    A -> C | g = 1 + 2 = 3 | h = 0 | f = 3 + 0 = 3 | pushed
+   frontier after expanding A [(3, 3, 'C'), (4, 4, 'B')] as (f, g, node)
+Processed C | g = 3 | h = 0 | f = g + h = 3 + 0 = 3 | path ['S', 'A', 'C']
+    C -> G | g = 3 + 3 = 6 | h = 0 | f = 6 + 0 = 6 | pushed
+   frontier after expanding C [(4, 4, 'B'), (6, 6, 'G')] as (f, g, node)
+Processed B | g = 4 | h = 0 | f = g + h = 4 + 0 = 4 | path ['S', 'B']
+    B -> G | g = 4 + 5 = 9 | not better than 6 | skipped
+   frontier after expanding B [(6, 6, 'G')] as (f, g, node)
+Processed G | g = 6 | h = 0 | f = g + h = 6 + 0 = 6 | path ['S', 'A', 'C', 'G']
+   goal processed, logged but not counted as expanded
+UCS result
+   returned path: ['S', 'A', 'C', 'G']
+   returned cost: 6
+   independently summed cost: 6
+   processed order (goal included): ['S', 'A', 'C', 'B', 'G']
+   expanded nodes (goal excluded): ['S', 'A', 'C', 'B']
+   expansion count: 4
+   stale entries ignored: 0
+Comparison table
+   method | path | cost | expansions | processed
+   A*  | ['S', 'A', 'C', 'G'] | 6 | 3 | ['S', 'A', 'C', 'G']
+   UCS | ['S', 'A', 'C', 'G'] | 6 | 4 | ['S', 'A', 'C', 'B', 'G']
+Supplied astar function agrees: True

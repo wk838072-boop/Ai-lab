@@ -1,0 +1,49 @@
+Task 3: overestimate experiment, only h(C) changes
+h(C) original: 2 | modified: 10 | true remaining cost of C: 3
+Overestimate: True
+Heuristic audit for modified heuristic h(C)=10
+    S h = 5 true remaining = 6 admissible: True
+    A h = 4 true remaining = 5 admissible: True
+    B h = 4 true remaining = 5 admissible: True
+    C h = 10 true remaining = 3 admissible: False
+    G h = 0 true remaining = 0 admissible: True
+    edge S -> A | h(u) = 5 <= cost + h(v) = 1 + 4 = 5 : True
+    edge S -> B | h(u) = 5 <= cost + h(v) = 4 + 4 = 8 : True
+    edge A -> C | h(u) = 4 <= cost + h(v) = 2 + 10 = 12 : True
+    edge B -> G | h(u) = 4 <= cost + h(v) = 5 + 0 = 5 : True
+    edge C -> G | h(u) = 10 <= cost + h(v) = 3 + 0 = 3 : False
+    inconsistent edges: [('C', 'G')]
+Modified run trace
+start frontier [('S', 'g=0', 'h=5', 'f=5')]
+Processed S | g = 0 | h = 5 | f = g + h = 0 + 5 = 5 | path ['S']
+    S -> A | g = 0 + 1 = 1 | h = 4 | f = 1 + 4 = 5 | pushed
+    S -> B | g = 0 + 4 = 4 | h = 4 | f = 4 + 4 = 8 | pushed
+   frontier after expanding S [(5, 1, 'A'), (8, 4, 'B')] as (f, g, node)
+Processed A | g = 1 | h = 4 | f = g + h = 1 + 4 = 5 | path ['S', 'A']
+    A -> C | g = 1 + 2 = 3 | h = 10 | f = 3 + 10 = 13 | pushed
+   frontier after expanding A [(8, 4, 'B'), (13, 3, 'C')] as (f, g, node)
+Processed B | g = 4 | h = 4 | f = g + h = 4 + 4 = 8 | path ['S', 'B']
+    B -> G | g = 4 + 5 = 9 | h = 0 | f = 9 + 0 = 9 | pushed
+   frontier after expanding B [(9, 9, 'G'), (13, 3, 'C')] as (f, g, node)
+Processed G | g = 9 | h = 0 | f = g + h = 9 + 0 = 9 | path ['S', 'B', 'G']
+   goal processed, logged but not counted as expanded
+Original h result
+   returned path: ['S', 'A', 'C', 'G']
+   returned cost: 6
+   independently summed cost: 6
+   processed order (goal included): ['S', 'A', 'C', 'G']
+   expanded nodes (goal excluded): ['S', 'A', 'C']
+   expansion count: 3
+   stale entries ignored: 0
+Modified h result
+   returned path: ['S', 'B', 'G']
+   returned cost: 9
+   independently summed cost: 9
+   processed order (goal included): ['S', 'A', 'B', 'G']
+   expanded nodes (goal excluded): ['S', 'A', 'B']
+   expansion count: 3
+   stale entries ignored: 0
+Path changed: True
+Cost changed: True
+Expansion count changed: False
+Node C was expanded in the modified run: False

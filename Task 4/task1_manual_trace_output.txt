@@ -1,0 +1,15 @@
+Task 1: hand calculation check, supplied graph and heuristic, start S, goal G
+Tie break: the queue orders by f, then g, then node name
+start frontier [('S', 'g=0', 'h=5', 'f=5')]
+Processed S | g = 0 | h = 5 | f = g + h = 0 + 5 = 5 | path ['S']
+    S -> A | g = 0 + 1 = 1 | h = 4 | f = 1 + 4 = 5 | pushed
+    S -> B | g = 0 + 4 = 4 | h = 4 | f = 4 + 4 = 8 | pushed
+   frontier after expanding S [(5, 1, 'A'), (8, 4, 'B')] as (f, g, node)
+Processed A | g = 1 | h = 4 | f = g + h = 1 + 4 = 5 | path ['S', 'A']
+    A -> C | g = 1 + 2 = 3 | h = 2 | f = 3 + 2 = 5 | pushed
+   frontier after expanding A [(5, 3, 'C'), (8, 4, 'B')] as (f, g, node)
+Processed C | g = 3 | h = 2 | f = g + h = 3 + 2 = 5 | path ['S', 'A', 'C']
+    C -> G | g = 3 + 3 = 6 | h = 0 | f = 6 + 0 = 6 | pushed
+   frontier after expanding C [(6, 6, 'G'), (8, 4, 'B')] as (f, g, node)
+Processed G | g = 6 | h = 0 | f = g + h = 6 + 0 = 6 | path ['S', 'A', 'C', 'G']
+   goal processed, logged but not counted as expanded

@@ -1,0 +1,21 @@
+Start equals goal
+PASS A* cost and path | got (0, ['S']) | expected (0, ['S'])
+PASS A* expansions | got 0 | expected 0
+Unreachable goal H
+PASS A* cost and path | got (None, None) | expected (None, None)
+PASS A* expanded every reachable node | got ['A', 'B', 'C', 'G', 'S'] | expected ['A', 'B', 'C', 'G', 'S']
+Stale entry case
+PASS cost and path | got (13, ['S', 'B', 'C', 'G']) | expected (13, ['S', 'B', 'C', 'G'])
+PASS stale entries ignored | got 1 | expected 1
+PASS expanded order | got ['S', 'A', 'B', 'C'] | expected ['S', 'A', 'B', 'C']
+Heuristic quality
+PASS supplied h has no inconsistent edges | got [] | expected []
+PASS h(C)=10 breaks edge | got [('C', 'G')] | expected [('C', 'G')]
+PASS true remaining costs | got {'S': 6, 'A': 5, 'B': 5, 'C': 3, 'G': 0} | expected {'S': 6, 'A': 5, 'B': 5, 'C': 3, 'G': 0}
+Comparison checks
+PASS supplied code matches astar | got (6, ['S', 'A', 'C', 'G']) | expected (6, ['S', 'A', 'C', 'G'])
+PASS A* expansions | got 3 | expected 3
+PASS UCS control expansions | got 4 | expected 4
+PASS overestimate result | got (9, ['S', 'B', 'G']) | expected (9, ['S', 'B', 'G'])
+Negative edge cost is rejected
+PASS ValueError: negative edge cost
