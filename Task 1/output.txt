@@ -1,0 +1,43 @@
+$ python lab1_compare.py
+case | symbolic | threshold | disagreement
+complete_high | Review | Review | False
+complete_low | Hold | Review | True
+incomplete_high | Hold | Review | True
+boundary | Review | Review | False
+
+$ python lab1_rules.py
+Thresholds are synthetic lab assumptions (score >= 70, gpa >= 2.5).
+============================================================
+Case: pass_case
+  Input    : score=85, documents_complete=True, recommendation=True, gpa=3.4
+  Expected : Review
+  Actual   : Review
+  Reason   : all conditions met
+  Why chosen: Normal application that meets every condition.
+  Result   : PASS
+------------------------------------------------------------
+Case: fail_recommendation
+  Input    : score=85, documents_complete=True, recommendation=False, gpa=3.4
+  Expected : Hold
+  Actual   : Hold
+  Reason   : recommendation letter is missing
+  Why chosen: Isolates new condition 1: only the recommendation letter is missing.
+  Result   : PASS
+------------------------------------------------------------
+Case: fail_gpa
+  Input    : score=85, documents_complete=True, recommendation=True, gpa=2.0
+  Expected : Hold
+  Actual   : Hold
+  Reason   : gpa 2.0 is below 2.5
+  Why chosen: Isolates new condition 2: only the gpa is too low.
+  Result   : PASS
+------------------------------------------------------------
+Case: boundary
+  Input    : score=70, documents_complete=True, recommendation=True, gpa=2.5
+  Expected : Review
+  Actual   : Review
+  Reason   : all conditions met
+  Why chosen: Tests >= at the exact threshold values (score 70, gpa 2.5).
+  Result   : PASS
+------------------------------------------------------------
+All test cases passed.
